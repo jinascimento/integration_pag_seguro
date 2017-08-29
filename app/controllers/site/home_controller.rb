@@ -8,6 +8,7 @@ class Site::HomeController < ApplicationController
   private
   
   def list_category
-    @categories = Category.all
+    @categories = Category.order(:description)
+    @ads = Ad.limit(5).order(created_at: :desc)
   end
 end

@@ -50,16 +50,20 @@ class Backoffice::AdminsController < BackofficeController
     @admin = Admin.find(params[:id])
   end
 
-  def params_admin
-
-    passwd = params[:admin][:password]
-    passwd_confirmation = params[:admin][:password_confirmation]
-    
+  def params_admin    
     #Para atualização apenas do email
-    if passwd.blank? && passwd_confirmation.blank?
+    if password_blank?
       params[:admin].except!(:password, :password_confirmation)
     end
+    if @admin.blank?
+      params.require(:admin).permit(:name, :email, :role, :password, :password_confirmation)
+    else
+      params.require(:admin).permit(policy(@admin).permitted_attributes)
+    end
+  end
 
-    params.require(:admin).permit(policy(@admin).permitted_attributes)
+  def password_blank?
+    params[:admin][:password].blank? && 
+    params[:admin][:password_confirmation].blank?
   end
 end

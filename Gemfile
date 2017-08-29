@@ -67,6 +67,8 @@ group :development, :test do
 end
 
 group :development do
+  # Gem generate lerolero
+  gem 'lerolero_generator'
   # Catches mail and serves it through a dream. http://mailcatcher.me
   gem 'mailcatcher'
   gem 'faker'
