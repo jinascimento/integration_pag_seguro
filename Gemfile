@@ -45,6 +45,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'enum_help'
 # Minimal authorization through OO design and pure Ruby classes
 gem 'pundit'
+# Integration of RubyMoney - Money with Rails
+gem 'money-rails', '~>1'
+# Easy file attachment management for ActiveRecord
+gem 'paperclip', '~> 5.0.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
