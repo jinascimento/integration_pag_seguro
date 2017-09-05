@@ -64,6 +64,9 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     daemons (1.2.4)
+    debase (0.2.1)
+      debase-ruby_core_source
+    debase-ruby_core_source (0.9.9)
     debug_inspector (0.0.3)
     devise (4.3.0)
       bcrypt (~> 3.0)
@@ -192,6 +195,8 @@ GEM
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
       railties (>= 4.2.0, < 5.3)
+    ruby-debug-ide (0.6.0)
+      rake (>= 0.8.1)
     ruby-graphviz (1.2.3)
     sass (3.5.1)
       sass-listen (~> 4.0.0)
@@ -252,6 +257,7 @@ DEPENDENCIES
   bootstrap_sb_admin_base_v2
   byebug
   coffee-rails (~> 4.1.0)
+  debase
   devise
   devise-i18n
   enum_help
@@ -271,6 +277,7 @@ DEPENDENCIES
   rails-assets-notifyjs!
   rails-erd
   rails-i18n
+  ruby-debug-ide
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   spring
