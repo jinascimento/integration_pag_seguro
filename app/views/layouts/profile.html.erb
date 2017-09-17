@@ -50,19 +50,7 @@
                     <%= link_to "Meus anúncios", site_profile_ads_path %>
                 </li>
                 <li>
-                    <a href="#">Overview</a>
-                </li>
-                <li>
-                    <a href="#">Events</a>
-                </li>
-                <li>
-                    <a href="#">About</a>
-                </li>
-                <li>
-                    <a href="#">Services</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
+                  <%= link_to "Novo anúncio", new_site_profile_ad_path %>
                 </li>
             </ul>
         </div>
@@ -83,6 +71,11 @@
     </div>
         <!-- /#wrapper -->
     
+ <% if notice %>
+    <script>
+      $.notify("<%= notice %>", "success");
+    </script>
+ <% end %>
 </body>
 
 </html>
