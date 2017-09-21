@@ -12,6 +12,8 @@ class Site::Profile::AdsController < Site::ProfileController
   def update
     if @ad.update(params_ad)
       redirect_to site_profile_ads_path, notice: "Anúncio atualizado com sucesso!"
+    else
+      render :edit
     end
   end
 
@@ -36,6 +38,6 @@ class Site::Profile::AdsController < Site::ProfileController
   end
 
   def params_ad
-    params.require(:ad).permit(:title, :category_id, :price, :description, :picture, :id)
+    params.require(:ad).permit(:title, :category_id, :price, :description, :picture, :id, :finish_date)
   end
 end
