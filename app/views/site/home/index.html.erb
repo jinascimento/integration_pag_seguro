@@ -1,6 +1,7 @@
 <!-- Page Content -->
 <div class="container">
-  <div class="row">
+
+  <div id="home-sidebar" class="row">
     <div class="col-md-3">
       <p class="lead">Shop Name</p>
       <div class="list-group">
@@ -11,7 +12,7 @@
       </div>
     </div>
 
-    <div class="col-md-9">
+    <div id="home-detail" class="col-md-9">
       <div class="row carousel-holder">
         <div class="col-md-12">
           <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
@@ -49,7 +50,8 @@
               <%= image_tag ad.picture.url(:medium) %>
               <div class="caption">
                 <h4 class="pull-right"><%= humanized_money_with_symbol ad.price %></h4>
-                <h4><a href="#"><%= truncate(ad.title, length: 15) %></a>
+                <h4>
+                  <%= link_to truncate(ad.title, length: 15), site_ad_detail_path(ad), remote: true %>
                 </h4>
                 <p><%= truncate(ad.description, length: 100) %></p>
               </div>

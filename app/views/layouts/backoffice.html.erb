@@ -12,8 +12,6 @@
     <title>Escamboapp</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= stylesheet_link_tag    'backoffice', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-   <%= javascript_include_tag 'backoffice' %>
   <%= csrf_meta_tags %>
 
 </head>
@@ -37,19 +35,12 @@
             </div>
             <!-- /#page-wrapper -->
       
-    </div> 
-  
-  <% if notice %>
-    <script>
-      $.notify("<%= notice %>", "success");
-    </script> 
-  <% end %>
+    </div>
 
-  <% if alert %>
-  <script>
-    $.notify("<%= alert %>", "error");
-  </script> 
-<% end %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'backoffice' %>
+
+  <%= render partial: 'layouts/shared/notifications' %>
 </body>
 
 </html>

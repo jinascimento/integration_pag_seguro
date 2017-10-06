@@ -1,3 +1,6 @@
+<%= content_for :javascripts do %>
+  <%= javascript_include_tag 'site/profile/ads' %>
+<% end %>
 <h1>anúncio</h1>
 
 <% if @ad.errors.any? %>
@@ -42,7 +45,8 @@
       <div class="col-xs-3">
         <div class="form-group">
           <%= f.label :finish_date %>
-          <%= f.date_field :finish_date, class: 'form-control' %>
+          <%= f.text_field :finish_date, class: 'form-control datepicker',
+                           value: (l(@ad.finish_date) unless @ad.finish_date.blank?) %>
         </div>
       </div>
     </div>

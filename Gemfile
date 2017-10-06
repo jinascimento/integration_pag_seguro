@@ -15,10 +15,12 @@ gem 'bootstrap_sb_admin_base_v2'
 source 'https://rails-assets.org' do
   # BootBoxJs
   gem 'rails-assets-bootbox'
-  # Notification with style
-  gem 'rails-assets-notifyjs'
+  # Bootstrap notify
+  gem 'rails-assets-bootstrap.growl'
   # Layout
   gem 'rails-assets-bootstrap', '3.3.7'
+  # Animate CSS notifiy bootstrap
+  gem 'rails-assets-animate-css'
 end
 
 gem 'foreman'
@@ -49,6 +51,10 @@ gem 'pundit'
 gem 'money-rails', '~>1'
 # Easy file attachment management for ActiveRecord
 gem 'paperclip', '~> 5.0.0'
+# jQuery UI for the Rails asset pipeline
+gem 'jquery-ui-rails'
+# The safe Markdown parser, reloaded.
+gem 'redcarpet'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

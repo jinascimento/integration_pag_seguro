@@ -15,9 +15,6 @@
   <%= stylesheet_link_tag    'site', media: 'all' %>
   <%= stylesheet_link_tag    'site/profile', media: 'all' %>
 
-  <%= javascript_include_tag 'application' %>
-  <%= javascript_include_tag 'site' %>
-  <%= javascript_include_tag 'site/profile' %>
   <%#= javascript_include_tag 'site/profile' %>
   <%= csrf_meta_tags %>
 
@@ -70,12 +67,13 @@
     
     </div>
         <!-- /#wrapper -->
-    
- <% if notice %>
-    <script>
-      $.notify("<%= notice %>", "success");
-    </script>
- <% end %>
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'site' %>
+  <%= javascript_include_tag 'site/profile' %>
+  <%#= javascript_include_tag 'site/profile/ads' %> <!-- utilizando content_for -->
+  <%= yield :javascripts %>
+
+  <%= render partial: 'layouts/shared/notifications' %>
 </body>
 
 </html>

@@ -11,10 +11,8 @@
 
     <title>ESCAMBO APP</title>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= stylesheet_link_tag    'site', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'site', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= stylesheet_link_tag    'site', media: 'all' %>
   <%= csrf_meta_tags %>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -27,10 +25,13 @@
 </head>
 
 <body>
+  <div id="global-spin" class="loading" style="display: none;">Loading&#8230;</div>
   <%= render partial: "layouts/site_shared/navigation" %>
   <%= yield %>
   <%= render partial: "layouts/site_shared/footer" %>
     <!-- Navigation -->
+  <%= javascript_include_tag 'application' %>
+  <%= javascript_include_tag 'site' %>
     
 </body>
 
