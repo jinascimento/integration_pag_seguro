@@ -20,6 +20,9 @@
 #
 
 class Ad < ActiveRecord::Base
+
+  # Constants
+  QTD_PER_PAGE = 6
   #Callbacks
   before_save :md_to_html
 
@@ -30,10 +33,17 @@ class Ad < ActiveRecord::Base
   # Validates
   validates :title, :description_md, :description_short, :category, :picture, :finish_date, presence: true
   validates :price, numericality: { greater_than: 0 }
+
    # Scope
-  scope :descending_order, ->(quantify = 10) { limit(quantify).order(created_at: :desc) }
+  scope :descending_order, ->(page) {
+    order(created_at: :desc).page(page).per(QTD_PER_PAGE)
+  }
   scope :ad_for_current_member, ->(member) { where(member: member)}
   scope :by_category, -> (id)  { where(category: id)}
+  scope :search, -> (term) {
+    where("lower(title) LIKE ?", "%#{term.downcase}%").page(page).per(QTD_PER_PAGE)
+  }
+
   # paperclip
   has_attached_file :picture, styles: { large: "800x300#", medium: "320x150#", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
   validates_attachment_content_type :picture, content_type: /\Aimage\/.*\z/

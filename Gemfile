@@ -61,6 +61,14 @@ gem 'jquery-ui-rails'
 gem 'redcarpet'
 # FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord. It allows you to create pretty URL’s and work with human-friendly strings as if they were numeric ids for ActiveRecord models.
 gem 'friendly_id', '~> 5.1.0'
+# If Turbolinks are not enough for you. Wiselinks makes your application work faster.
+gem 'wiselinks'
+# A Scope & Engine based, clean, powerful, customizable and sophisticated paginator for Ruby webapps
+gem 'kaminari'
+# Translations for the kaminari gem
+gem 'kaminari-i18n'
+# Generate Entity-Relationship Diagrams for Rails applications
+gem 'rails-erd'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

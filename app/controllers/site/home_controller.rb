@@ -9,6 +9,6 @@ class Site::HomeController < SiteController
   
   def list_category
     @categories = Category.order_by_description
-    @ads = Ad.descending_order
+    @ads = Ad.descending_order(params[:page])
   end
 end
