@@ -21,6 +21,10 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap', '3.3.7'
   # Animate CSS notifiy bootstrap
   gem 'rails-assets-animate-css'
+  # Markdown bootstrap
+  gem 'rails-assets-bootstrap-markdown'
+  # Marked parse via javascript
+  gem 'rails-assets-marked'
 end
 
 gem 'foreman'
@@ -55,6 +59,8 @@ gem 'paperclip', '~> 5.0.0'
 gem 'jquery-ui-rails'
 # The safe Markdown parser, reloaded.
 gem 'redcarpet'
+# FriendlyId is the “Swiss Army bulldozer” of slugging and permalink plugins for ActiveRecord. It allows you to create pretty URL’s and work with human-friendly strings as if they were numeric ids for ActiveRecord models.
+gem 'friendly_id', '~> 5.1.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -74,6 +80,8 @@ group :development, :test do
   gem 'better_errors'
   # Generate Entity-Relationship Diagrams for Rails applications 
   gem 'rails-erd'
+  # Annotate Rails classes with schema and routes info
+  gem 'annotate', git: 'https://github.com/ctran/annotate_models.git', require: false
 end
 
 group :development do
@@ -81,7 +89,10 @@ group :development do
   gem 'lerolero_generator'
   # Catches mail and serves it through a dream. http://mailcatcher.me
   gem 'mailcatcher'
+  # Faker
   gem 'faker'
+  # Markdown Lorem Ipsum generator
+  gem 'doctor_ipsum'
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   # Debugger in VsCode

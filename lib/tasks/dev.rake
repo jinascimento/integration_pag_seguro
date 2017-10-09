@@ -55,7 +55,8 @@ namespace :dev do
     5.times do
       Ad.create!(
         title: Faker::Lorem.sentence([2,3,4,5].sample),
-        description: LeroleroGenerator.paragraph([1,2,3].sample),
+        description_md: markdown_fake,
+        description_short: Faker::Lorem.sentence([2,3].sample),
         member: Member.all.sample,
         category: Category.all.sample,
         price: "#{Random.rand(500)},#{Random.rand(99)}",
@@ -67,7 +68,8 @@ namespace :dev do
     100.times do
       Ad.create!(
           title: Faker::Lorem.sentence([2,3,4,5].sample),
-          description: LeroleroGenerator.paragraph([1,2,3].sample),
+          description_md: markdown_fake,
+          description_short: Faker::Lorem.sentence([2,3].sample),
           member: Member.all.sample,
           category: Category.all.sample,
           price: "#{Random.rand(500)},#{Random.rand(99)}",
@@ -79,15 +81,20 @@ namespace :dev do
   end
 
   ######################################################################
-  desc "Cria membro padrão"
+  desc "Cria membro padrao"
   task generate_member_default: :environment do
-    puts '********* Criando membro padrão *********'
+    puts '********* Criando membro padrao *********'
       Member.create!(
       email: "membro_default@default.com",
       password: "123456",
       password_confirmation: "123456"
     )
-    puts '********* membro padrão criado *********'
+    puts '********* membro padrao criado *********'
+  end
+
+  def markdown_fake
+    # Refatorar usando a gem diretamente
+    %x(ruby -e "require 'doctor_ipsum'; puts DoctorIpsum::Markdown.entry")
   end
 
 end
