@@ -1,0 +1,12 @@
+<% @ad.comments.each do |comment| %>
+  <div class="row">
+    <div clas="col-md-12">
+      <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
+      4.0 stars
+      <span class="pull-right"><%= l comment.created_at %></span>
+      <p><%= comment.body %></p>
+      <small class="text-muted">Postado por <%= comment.member.email %> </small>
+      <hr>
+    </div>
+  </div>
+<% end %>

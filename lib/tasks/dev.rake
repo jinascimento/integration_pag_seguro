@@ -14,6 +14,7 @@ namespace :dev do
       puts %x(rake dev:generate_admins)
       puts %x(rake dev:generate_members)
       puts %x(rake dev:generate_anuncios)
+      puts %x(rake dev:generate_comments)
       puts %x(rake dev:generate_member_default)
   end
   ####################################################################
@@ -95,6 +96,25 @@ namespace :dev do
   def markdown_fake
     # Refatorar usando a gem diretamente
     %x(ruby -e "require 'doctor_ipsum'; puts DoctorIpsum::Markdown.entry")
+  end
+
+  #######################################################################
+
+  desc "Cria comentarios fake"
+  task generate_comments: :environment do
+    puts '********* Criando comentarios Faker *********'
+
+    Ad.all.each do |ad|
+      (Random.rand(3)).times do
+        Comment.create!(
+             body: Faker::Lorem.paragraph([1, 2, 3].sample),
+             member: Member.all.sample,
+             ad: ad
+        )
+      end
+    end
+
+    puts "********* comentarios cadastrados com sucesso *********"
   end
 
 end

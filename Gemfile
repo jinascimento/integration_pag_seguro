@@ -81,7 +81,7 @@ gem 'rails-erd'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  #gem 'byebug'
   # An IRB alternative and runtime developer console
   gem 'pry'
   # Better error page for Rack apps
@@ -90,6 +90,9 @@ group :development, :test do
   gem 'rails-erd'
   # Annotate Rails classes with schema and routes info
   gem 'annotate', git: 'https://github.com/ctran/annotate_models.git', require: false
+  # Debugger
+  gem 'ruby-debug-ide'
+  gem 'debase'
 end
 
 group :development do
@@ -104,8 +107,6 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
   # Debugger in VsCode
-  gem 'ruby-debug-ide'
-  gem 'debase'
   
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
