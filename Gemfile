@@ -69,6 +69,8 @@ gem 'kaminari'
 gem 'kaminari-i18n'
 # Generate Entity-Relationship Diagrams for Rails applications
 gem 'rails-erd'
+# A Ruby Gem that wraps the functionality of jQuery Raty library, and provides optional IMDB style rating.
+gem 'ratyrate'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

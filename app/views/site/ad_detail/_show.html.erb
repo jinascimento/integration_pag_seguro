@@ -1,50 +1,40 @@
-      <div class="card mt-4">
-        <%= image_tag @ad.picture.url(:large), class: "card-img-top img-fluid" %>
-        <div class="card-body">
-          <h3 class="card-title"><%= @ad.title %></h3>
-          <h4><%= humanized_money_with_symbol @ad.price %></h4>
-          <%= @ad.description.html_safe %>
-        </div>
-      </div>
-      <!-- /.card -->
+<div class="well">
+  <div class="card mt-4">
+    <%= image_tag @ad.picture.url(:large), class: "card-img-top img-fluid" %>
+    <div class="card-body">
+      <h3 class="card-title"><%= @ad.title %></h3>
+      <h4><%= humanized_money_with_symbol @ad.price %></h4>
+      <%= @ad.description.html_safe %>
+    </div>
+  </div>
+</div>
 
-      <div class="well">
-        <div class="text-right">
-          <button type="button" class="btn btn-success" data-toggle="modal" data-target="#commentModal">
-            Deixe um comentário
-          </button>
-        </div>
+<div class="well well-sm">
+  <div class="ratings">
+    <p class="pull-right"><%= @ad.comments.count %> comentários</p>
+    <%= rating_for @ad, 'quality', disable_after_rate: false %>
+  </div>
+</div>
+<!-- /.card -->
 
-        <hr>
+<div class="well">
 
-          <div>
-            <%= render partial: 'site/ad_detail/comments' %>
-          </div>
-        </div>
+  <% if member_signed_in? %>
+    <div class="text-right">
+      <button type="button" class="btn btn-success" data-toggle="modal" data-target="#commentModal">
+        Deixe um comentário
+      </button>
+    </div>
+  <% else %>
+    <div class="text-right">
+      <%= link_to "Efetue login para comentar", new_member_session_path, class: 'btn btn-success' %>
+    </div>
+  <% end %>
 
-      </div>
+  <hr>
+  <div>
+    <%= render partial: 'site/ad_detail/comments' %>
+  </div>
+</div>
 
-      <!-- Button trigger modal -->
-      <!-- Modal -->
-      <div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- /.card -->
-
-
+<%= render partial: 'site/ad_detail/comment_modal' %>

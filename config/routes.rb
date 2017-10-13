@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  post '/rate' => 'rater#create', :as => 'rate'
   get 'backoffice', to: 'backoffice/dashboard#index'
   
   namespace :backoffice do
@@ -20,8 +21,9 @@ Rails.application.routes.draw do
       resources :ads, only: [:index, :edit, :update, :new, :create]
     end
 
-    resources :ad_detail, only: [:show]
+    resources :ad_detail, only: [:show, :index]
     resources :categories, only: [:show]
+    resources :comments, only: [:create]
   end
 
   devise_for :admins, :skip => [:registrations]

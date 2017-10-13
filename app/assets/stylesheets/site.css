@@ -33,6 +33,14 @@ body {
 }
 
 .ratings {
+    padding: 5px;
+}
+
+.star img {
+    width: 20px;
+}
+
+.ratings {
     padding-right: 10px;
     padding-left: 10px;
     color: #d17581;

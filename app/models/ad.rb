@@ -23,6 +23,8 @@ class Ad < ActiveRecord::Base
 
   # Constants
   QTD_PER_PAGE = 6
+  # RatyRate GEM
+  ratyrate_rateable "quality"
   #Callbacks
   before_save :md_to_html
 
@@ -40,7 +42,7 @@ class Ad < ActiveRecord::Base
     order(created_at: :desc).page(page).per(QTD_PER_PAGE)
   }
   scope :ad_for_current_member, ->(member) { where(member: member)}
-  scope :by_category, -> (id)  { where(category: id)}
+  scope :by_category, -> (id, page)  { where(category: id).page(page).per(QTD_PER_PAGE)}
   scope :search, -> (term) {
     where("lower(title) LIKE ?", "%#{term.downcase}%").page(page).per(QTD_PER_PAGE)
   }

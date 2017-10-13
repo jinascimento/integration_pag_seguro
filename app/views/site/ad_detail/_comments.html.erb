@@ -1,10 +1,11 @@
 <% @ad.comments.each do |comment| %>
   <div class="row">
     <div clas="col-md-12">
-      <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
-      4.0 stars
-      <span class="pull-right"><%= l comment.created_at %></span>
+      <span class="pull-right"><%= time_ago_in_words(comment.created_at) %></span>
       <p><%= comment.body %></p>
+      <% if (current_member) && (comment.member.id == current_member.id) %>
+          <%= rating_for_user @ad, current_member, 'quality' %>
+      <% end %>
       <small class="text-muted">Postado por <%= comment.member.email %> </small>
       <hr>
     </div>
