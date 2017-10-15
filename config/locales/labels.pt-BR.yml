@@ -1,0 +1,21 @@
+'pt-BR':
+  labels:
+    login: Login
+    identify_yourself: Identifique-se
+    remember_me: Lembrar-se de mim
+    enter: Entrar
+    email: E-mail
+    passowrd: Senha
+    message: Mensagem
+    new_message: Nova mensagem
+    send_message_to: Enviar mensagem para %{name}
+    recipient: Destinatário
+    subject: Assunto
+    let_your_comment: Deixe seu comentário
+    comment: Comentário
+    comments: comentários
+    reviews: avalições
+    login_to_comment: Efetue login para comentar
+    er_diagram: Diagrama ER
+    forgot_password: Esqueceu sua senha?
+    dont_have_a_account: Não tenho uma conta!

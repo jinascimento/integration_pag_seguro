@@ -39,11 +39,17 @@ namespace :dev do
   task generate_members: :environment do
     puts '********* Criando membros Faker *********'
     100.times do
-      Member.create!(
+      member = Member.new(
       email: Faker::Internet.email,
       password: "123456",
       password_confirmation: "123456"
     )
+      member.build_profile_member
+      member.profile_member.first_name = Faker::Name.first_name
+      member.profile_member.second_name = Faker::Name.last_name
+
+      member.save!
+
     end
     puts '********* membros criados *********'
   end
@@ -85,11 +91,17 @@ namespace :dev do
   desc "Cria membro padrao"
   task generate_member_default: :environment do
     puts '********* Criando membro padrao *********'
-      Member.create!(
+     member = Member.new(
       email: "membro_default@default.com",
       password: "123456",
       password_confirmation: "123456"
     )
+
+    member.build_profile_member
+    member.profile_member.first_name = Faker::Name.first_name
+    member.profile_member.second_name = Faker::Name.last_name
+
+    member.save!
     puts '********* membro padrao criado *********'
   end
 

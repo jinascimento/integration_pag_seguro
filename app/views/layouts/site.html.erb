@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
 
     <meta charset="utf-8">
@@ -48,17 +47,23 @@
         </div>
       <% end %>
 
-      <%= render partial: 'layouts/site_shared/sidebar' %>
+      <div class="row">
+        <%= render partial: 'layouts/site_shared/sidebar' %>
 
-      <div id="home-detail" class="col-md-9">
-        <% if controller_path == 'site/home' %>
-          <%= render partial: 'layouts/site_shared/carousel' %>
-        <% end %>
+        <div id="home-detail" class="col-md-9">
 
-        <div class="row">
-          <%= yield %>
+          <% if controller_path == 'site/home' %>
+            <%= render partial: 'layouts/site_shared/carousel' %>
+          <% end %>
+
+          <div class="row">
+            <%= yield %>
+          </div>
+
         </div>
+
       </div>
+
     </div>
     <!-- /.container -->
 

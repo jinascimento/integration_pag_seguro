@@ -2,13 +2,9 @@ class Site::HomeController < SiteController
   layout "site"
 
   def index
-    list_category
-  end
-
-  private
-  
-  def list_category
     @categories = Category.order_by_description
     @ads = Ad.descending_order(params[:page])
+    @carousel = Ad.random_carousel(3)
   end
+
 end

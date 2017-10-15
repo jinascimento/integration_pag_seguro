@@ -29,16 +29,8 @@
     </div>
 </div>
 <% flash.each do |key, value| %>
-    <div class="alert alert-<%= key %>">
-        <a href="#" data-dismiss="alert" class="close">x</a>
-        <<ul>
-            <li>
-                <script>
-                    $.notify("<%= value %>", "error");
-                </script> 
-            </li>
-        </ul>
-    </div>
+    <%= javascript_tag "$.notify( {message:'#{value}'}, { type: 'danger',
+    placement: {from: 'top', align: 'center'}});" %>
 <% end %>
     
 

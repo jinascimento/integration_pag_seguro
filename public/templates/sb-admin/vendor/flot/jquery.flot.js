@@ -1892,7 +1892,7 @@ Licensed under the MIT license.
             surface.render();
 
             // A draw implies that either the axes or data have changed, so we
-            // should probably update the overlay highlights as well.
+            // should probably edit the overlay highlights as well.
 
             triggerRedrawOverlay();
         }

@@ -11,6 +11,7 @@
         </div>
         <div class="ratings">
           <p>
+          <p class="pull-right"><%= ad.rates('quality').count %> <%= t('labels.reviews') %></p>
             <%= rating_for ad, 'quality' %>
           </p>
         </div>
