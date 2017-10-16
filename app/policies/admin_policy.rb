@@ -1,5 +1,5 @@
 class AdminPolicy < ApplicationPolicy
-  
+
   def new?
     user.full_access?
   end
@@ -19,15 +19,14 @@ class AdminPolicy < ApplicationPolicy
       [:name, :email, :password, :password_confirmation]
     end
   end
-  
+
   class Scope < Scope
     def resolve
       if user.full_access?
-        scope.all 
+        scope.all
       else
         scope.with_restricted_access
       end
-
     end
   end
 end

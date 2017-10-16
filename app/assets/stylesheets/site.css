@@ -2,7 +2,11 @@
  *= require bootstrap
  */
 
-body {
+p#time-ago {
+    margin-bottom: -4px;
+}
+
+ body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 }
 
@@ -32,12 +36,8 @@ body {
     width: 100%;
 }
 
-.ratings {
-    padding: 5px;
-}
-
 .star img {
-    width: 20px;
+    width: 15px;
 }
 
 .ratings {

@@ -1,8 +1,15 @@
 $(function(){
-  $('h4.modal-title').text('<%= @admin.name %>');
+  let $sendMailModal = $('#sendMailModal');
+
+  // Setting email and name on Form
   $('#recipient-text').val('<%= @admin.email %>');
-  $('#sendMailModal').modal();
-  $('#sendMailModal').on('shown.bs.modal', function(){
-    $('#message-text').focus();
+  $('h4.modal-title').text("<%= I18n.t('labels.send_message_to', name: @admin.name) %>");
+
+  // Shows Modal
+  $sendMailModal.modal();
+
+  // Set focus on 'Message Text' after modal is shown
+  $sendMailModal.on('shown.bs.modal', function () {
+    $('#subject-text').focus();
   })
 });

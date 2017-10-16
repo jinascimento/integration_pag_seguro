@@ -5,5 +5,5 @@
 
 /** Wiselinks Gem **/
 $(function(){
-    window.wiselinks = new Wiselinks($('#home-detail'));
+  window.wiselinks = new Wiselinks($('#home-detail'));
 });

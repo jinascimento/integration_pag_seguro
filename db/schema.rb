@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171014090025) do
+ActiveRecord::Schema.define(version: 20170119230220) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -36,8 +36,8 @@ ActiveRecord::Schema.define(version: 20171014090025) do
   create_table "ads", force: :cascade do |t|
     t.string   "title",                limit: 255
     t.text     "description"
-    t.integer  "category_id"
     t.integer  "member_id"
+    t.integer  "category_id"
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
     t.integer  "price_cents",                      default: 0

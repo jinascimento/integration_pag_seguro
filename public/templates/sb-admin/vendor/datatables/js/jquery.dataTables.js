@@ -787,13 +787,13 @@
 		
 		/**
 		 * Update a table cell or row - this method will accept either a single value to
-		 * edit the cell with, an array of values with one element for each column or
+		 * update the cell with, an array of values with one element for each column or
 		 * an object in the same format as the original data source. The function is
 		 * self-referencing in order to make the multi column updates easier.
-		 *  @param {object|array|string} mData Data to edit the cell/row with
-		 *  @param {node|int} mRow TR element you want to edit or the aoData index
-		 *  @param {int} [iColumn] The column to edit, give as null or undefined to
-		 *    edit a whole row.
+		 *  @param {object|array|string} mData Data to update the cell/row with
+		 *  @param {node|int} mRow TR element you want to update or the aoData index
+		 *  @param {int} [iColumn] The column to update, give as null or undefined to
+		 *    update a whole row.
 		 *  @param {bool} [bRedraw=true] Redraw the table or not
 		 *  @param {bool} [bAction=true] Perform pre-draw actions or not
 		 *  @returns {int} 0 on success, 1 on error
@@ -803,7 +803,7 @@
 		 *  @example
 		 *    $(document).ready(function() {
 		 *      var oTable = $('#example').dataTable();
-		 *      oTable.fnUpdate( 'Example edit', 0, 0 ); // Single cell
+		 *      oTable.fnUpdate( 'Example update', 0, 0 ); // Single cell
 		 *      oTable.fnUpdate( ['a', 'b', 'c', 'd', 'e'], $('tbody tr')[0] ); // Row
 		 *    } );
 		 */
@@ -2852,7 +2852,7 @@
 	
 	/**
 	 * Mark cached data as invalid such that a re-read of the data will occur when
-	 * the cached data is next requested. Also edit from the data source object.
+	 * the cached data is next requested. Also update from the data source object.
 	 *
 	 * @param {object} settings DataTables settings object
 	 * @param {int}    rowIdx   Row index to invalidate
@@ -2890,7 +2890,7 @@
 				.data;
 		}
 		else {
-			// Reading from data object, edit the DOM
+			// Reading from data object, update the DOM
 			var cells = row.anCells;
 	
 			if ( cells ) {
@@ -3338,7 +3338,7 @@
 					while ( aoLocal[i][j+iColspan] !== undefined &&
 					        aoLocal[i][j].cell == aoLocal[i][j+iColspan].cell )
 					{
-						/* Must edit the applied array over the rows for the columns */
+						/* Must update the applied array over the rows for the columns */
 						for ( k=0 ; k<iRowspan ; k++ )
 						{
 							aApplied[i+k][j+iColspan] = 1;
@@ -4856,7 +4856,7 @@
 			plugin.fnInit( settings, node, redraw );
 		}
 	
-		/* Add a draw callback for the pagination on first instance, to edit the paging display */
+		/* Add a draw callback for the pagination on first instance, to update the paging display */
 		if ( ! features.p )
 		{
 			node.id = settings.sTableId+'_paginate';
@@ -4897,7 +4897,7 @@
 	 *  @param {object} settings DataTables settings object
 	 *  @param {string|int} action Paging action to take: "first", "previous",
 	 *    "next" or "last" or page number to jump to (integer)
-	 *  @param [bool] redraw Automatically draw the edit or not
+	 *  @param [bool] redraw Automatically draw the update or not
 	 *  @returns {bool} true page has changed, false - no change
 	 *  @memberof DataTable#oApi
 	 */
@@ -6016,7 +6016,7 @@
 		var aSort = _fnSortFlatten( settings );
 		var oAria = settings.oLanguage.oAria;
 	
-		// ARIA attributes - need to loop all columns, to edit all (removing old
+		// ARIA attributes - need to loop all columns, to update all (removing old
 		// attributes as needed)
 		for ( var i=0, iLen=columns.length ; i<iLen ; i++ )
 		{
@@ -8213,7 +8213,7 @@
 				} );
 			} );
 	
-			// Column visibility change - edit the colspan
+			// Column visibility change - update the colspan
 			api.on( colvisEvent, function ( e, ctx, idx, vis ) {
 				if ( settings !== ctx ) {
 					return;
@@ -14813,7 +14813,7 @@
 		header: {
 			_: function ( settings, cell, column, classes ) {
 				// No additional mark-up required
-				// Attach a sort listener to edit on sort - note that using the
+				// Attach a sort listener to update on sort - note that using the
 				// `DT` namespace will allow the event to be removed automatically
 				// on destroy, while the `dt` namespaced event is the one we are
 				// listening for
@@ -14847,7 +14847,7 @@
 					)
 					.appendTo( cell );
 	
-				// Attach a sort listener to edit on sort
+				// Attach a sort listener to update on sort
 				$(settings.nTable).on( 'order.dt.DT', function ( e, ctx, sorting, columns ) {
 					if ( settings !== ctx ) {
 						return;

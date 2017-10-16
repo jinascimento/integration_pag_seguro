@@ -12,8 +12,10 @@
 /db/*.sqlite3-journal
 
 # Ignore all logfiles and tempfiles.
+/public/system
 /log/*
 !/log/.keep
 /tmp
-/public/system
-/.vscode
+
+# Database configuration
+config/database.yml

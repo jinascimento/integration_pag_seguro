@@ -1,2 +1,6 @@
 'pt-BR':
-  app_name: EscamboApp
+  app:
+    name: EscamboApp
+    site_subtitle: Site - EscamboApp
+    backoffice_subtitle: Backoffice - EscamboApp
+    profile_subtitle: Perfil - EscamboApp

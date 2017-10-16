@@ -1,8 +1,14 @@
 'pt-BR':
   buttons:
+    new: Novo
+    save: Salvar
+    show: Mostrar
+    edit: Editar
+    destroy: Apagar
+    back: Voltar
+    home: Início
+    close: Fechar
     send: Enviar
-    login: Entrar
-    register_here: Cadastra-se aqui!
-    sign_up: inscrever-se
-    send_me_reset_password_instructions: Me enviar instruções de reset de senha
-    change_my_password: Redefinir senha
+    send_message: Enviar Mensagem
+    search: Pesquisar
+

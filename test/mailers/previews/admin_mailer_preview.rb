@@ -3,7 +3,7 @@ class AdminMailerPreview < ActionMailer::Preview
     AdminMailer.update_email(Admin.first, Admin.last)
   end
 
-  def send_message 
-    AdminMailer.send_message(Admin.first.email, Admin.last.email, 'Subject preview', 'Teste preview')
+  def send_message
+    AdminMailer.send_message(Admin.first.email, Admin.last.email, "Subject Test", "Loren loren...")
   end
 end

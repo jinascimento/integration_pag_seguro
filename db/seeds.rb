@@ -5,8 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Category.create(description: "teste")
-puts "************* Cadastrando categorias *************"
+
+
+puts "Cadastrando as CATEGORIAS..."
+
 categories = [ "Animais e acessórios" ,
                "Esportes" ,
                "Para a sua casa" ,
@@ -22,33 +24,37 @@ categories.each do |category|
   Category.friendly.find_or_create_by(description: category)
 end
 
-puts "************* Categorias cadastradas com sucesso *************"
+puts "CATEGORIAS cadastradas com sucesso!"
 
-###############################
+###################
 
-puts "****************************"
+puts "Cadastrando o ADMINISTRADOR Padrão..."
 
-puts "************* Cadastrando administrador padrao *************"
-
-Admin.create!(email: "administrador@admin.com",
+Admin.create!(
   name: "Administrador Geral",
+  email: "admin@admin.com",
   password: "123456",
   password_confirmation: "123456",
   role: 0
 )
 
-puts "************* Administrador padrao cadastrado com sucesso *************"
+puts "ADMINISTRADOR cadastrado com sucesso!"
+
+###################
+
+puts "Cadastrando o MEMBRO Padrão..."
 
 member = Member.new(
-          email: "membro@membro.com",
-          password: "123456",
-          password_confirmation: "123456"
+  email: "membro@membro.com",
+  password: "123456",
+  password_confirmation: "123456"
 )
 
 member.build_profile_member
+
 member.profile_member.first_name = Faker::Name.first_name
 member.profile_member.second_name = Faker::Name.last_name
 
 member.save!
 
-puts "MEMBRO padrao cadastrado com sucesso"
+puts "MEMBRO cadastrado com sucesso!"
