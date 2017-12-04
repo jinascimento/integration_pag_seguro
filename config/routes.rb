@@ -26,9 +26,10 @@ Rails.application.routes.draw do
     resources :comments, only: [:create]
   end
 
-    namespace :checkout do
-      resources :payments, only: [:create]
-    end
+  namespace :checkout do
+    resources :payments, only: [:create]
+    resources :notifications, only: [:create]
+  end
 
   devise_for :admins, :skip => [:registrations]
   devise_for :members, controllers: {
